@@ -1,0 +1,366 @@
+/* --- Global Styles --- */
+/* Import a robotic-style font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --background-color: #0d0d0d;
+  --text-color: #e0e0e0;
+  --secondary-text-color: #a0a0a0;
+  --primary-accent-color: #ffffff; /* White */
+  --primary-accent-hover: #cccccc; /* Light gray for hover */
+  --border-color: #4a4a4a;
+  --card-background: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- Scientific Background Effect --- */
+.background-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* --- Full-screen Overlay --- */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 13, 13, 0.7);
+  z-index: -1;
+  pointer-events: none;
+}
+
+a {
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-accent-color);
+  text-shadow: 0 0 5px var(--primary-accent-color);
+}
+
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* --- Scroll Animation Classes --- */
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  box-sizing: border-box;
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-color);
+  transition-delay: 0.1s;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-image {
+  width: 45px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--secondary-text-color);
+}
+
+.nav-links a:hover {
+  color: var(--primary-accent-color);
+}
+
+/* --- Enhanced Dropdown Menu --- */
+/* Dropdown Styles */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  min-width: 160px;
+  padding: 0.5rem 0;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+}
+
+.dropdown-menu.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-accent-color);
+  padding-left: 1.2rem;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem;
+  max-width: 800px;
+  transition-delay: 0.2s;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: var(--text-color);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--secondary-text-color);
+  margin: 1rem 0 2rem;
+}
+
+/* --- Content Cards Section --- */
+.lorem-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card-icon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-accent-color);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+.card-content-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+}
+
+.card-content-container::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--primary-accent-color);
+}
+
+
+/* Hero Button Styles */
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.hero-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.docsx-button {
+  background-color: #ffffff;
+  color: #0d0d0d;
+}
+
+.docsx-button:hover {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.agentgo-button {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.agentgo-button:hover {
+  background-color: #ffffff;
+  color: #0d0d0d;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* --- Enhanced Dropdown Menu --- */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  min-width: 160px;
+  padding: 0.5rem 0;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+  /* Add these to ensure proper hover area */
+  margin-top: 1px; /* Prevents gap between button and menu */
+  pointer-events: none; /* Allows hover when transitioning */
+}
+
+.dropdown-container:hover .dropdown-menu,
+.dropdown-menu:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto; /* Enable interactions when visible */
+  transition-delay: 0s; /* Remove any delay when opening */
+}
+
+/* Add a small delay when closing to prevent flickering */
+.dropdown-container:not(:hover) .dropdown-menu {
+  transition-delay: 0.1s;
+}
+
+.dropdown-menu li {
+  list-style: none;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-accent-color);
+  padding-left: 1.2rem;
+}
