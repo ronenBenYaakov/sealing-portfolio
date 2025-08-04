@@ -46,7 +46,11 @@ const App = () => {
     {
       title: "AgentGO",
       content: "AgentGO combines vector quantization with LLMs to create a lightspeed LLM, enabling extremely fast and responsive AI interactions for a variety of tasks.",
-    }
+    },
+    {
+      title: "PhotoAI",
+      content: "PhotoAI is a next-generation photo cloud storage platform powered by cutting-edge AI technologies. Designed for individuals and teams who value speed, security, and intelligent organization, SealPhotoCloud automatically analyzes, sorts, and tags your media using the latest advancements in computer vision, generative AI, and deep learning.",
+    },
   ];
 
   const renderHomePage = () => (
