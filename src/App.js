@@ -74,6 +74,14 @@ const App = () => {
           >
             Try AgentGO
           </a>
+          <a 
+            href="http://cloud-front-kappa.vercel.app/" 
+            className="hero-button photoai-button"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Try PhotoAI
+          </a>
         </div>
       </header>
       

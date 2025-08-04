@@ -360,7 +360,21 @@ a:hover {
 }
 
 .dropdown-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   color: var(--primary-accent-color);
   padding-left: 1.2rem;
+}
+
+/* Add this to your existing CSS */
+.photoai-button {
+  background-color: #ffffff; /* Purple solid background */
+  color: #000000;
+  border: 2px solid #ffffff; /* Purple border matching background */
+}
+
+.photoai-button:hover {
+  background-color: transparent;
+  color: #ffffff; /* Purple text */
+  border-color: #ffffff; /* Purple border */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Purple glow */
 }
